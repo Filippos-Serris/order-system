@@ -1,0 +1,11 @@
+.card {
+  background-color: black;
+  color: #c77dff;
+  border: solid thin white;
+  border-radius: 25px;
+  margin: 10px;
+}
+
+.customer_info {
+  text-align: center;
+}

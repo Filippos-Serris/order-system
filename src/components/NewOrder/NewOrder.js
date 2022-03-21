@@ -1,11 +1,14 @@
 import "./NewOrder.css";
 import CustomerInfo from "./CustomerInfo";
+import Card from "../UI/Card";
+import Cart from "./Order/Cart";
 
 function NewOrder() {
   return (
-    <div>
+    <Card>
       <CustomerInfo />
-    </div>
+      <Cart />
+    </Card>
   );
 }
 
