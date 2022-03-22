@@ -3,6 +3,7 @@ import Card from "../UI/Card";
 import React, { useState } from "react";
 
 function CustomerInfo() {
+  // object that stores thn form-inputs about the customer
   const [userInput, setUserInput] = useState({
     enteredStreet: "",
     enteredNumber: "",
@@ -12,6 +13,7 @@ function CustomerInfo() {
     enteredMobile: "",
   });
 
+  // on every change (keystroke) the current field updates the current field of the object
   function streetChangeHandler(event) {
     setUserInput(function (prevState) {
       return { ...prevState, enteredStreet: event.target.value };
@@ -43,8 +45,19 @@ function CustomerInfo() {
     });
   }
 
-  function submitHandler() {
-    return 0;
+  function submitHandler(event) {
+    event.preventDefault();
+
+    const customerInfo = {
+      street: userInput.enteredStreet,
+      number: userInput.enteredNumber,
+      doorbell: userInput.enteredDoorbell,
+      floor: userInput.enteredFloor,
+      phone: userInput.enteredPhone,
+      mobile: userInput.enteredMobile,
+    };
+
+    console.log(customerInfo);
   }
 
   return (
