@@ -22,11 +22,36 @@ const PRODUCT_LIST = [
 ];
 
 function Cart() {
+  function addingProductHandler(productToAdd) {
+    const addedProduct = { ...productToAdd };
+    console.log(addedProduct);
+  }
+
+  /* function clickHandler(event) {
+    event.preventDefault();
+  } */
+
   return (
     <Card className="cart">
       <h1>Products</h1>
-      {PRODUCT_LIST.map((prod) => (
-        <Product id={prod.id} title={prod.title} price={prod.price} />
+      {/* {PRODUCT_LIST.map((product) => (
+        <Card>
+          <Product
+            key={product.id}
+            title={product.title}
+            price={product.price}
+          />
+          <button onClick={clickHandler}>ADD</button>
+        </Card>
+      ))} */}
+
+      {PRODUCT_LIST.map((product) => (
+        <Product
+          addingProduct={addingProductHandler}
+          key={product.id}
+          title={product.title}
+          price={product.price}
+        />
       ))}
 
       <Order />
