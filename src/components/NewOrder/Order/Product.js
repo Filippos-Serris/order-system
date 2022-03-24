@@ -13,7 +13,7 @@ function Product(props) {
 
     props.addingProduct(addedProduct);
 
-    //console.log(addedProduct);
+    //console.log("from product component " + JSON.stringify(addedProduct));
   }
 
   return (

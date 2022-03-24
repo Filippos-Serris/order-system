@@ -21,36 +21,22 @@ const PRODUCT_LIST = [
   },
 ];
 
-const ORDERED_PRODUCTS = [{ id: "00", title: "DUMMY", price: "666" }];
+const ORDERED_PRODUCTS = [];
 
 function Cart() {
-  //const [orderedProduct, setOrderedProduct] = useState(ORDERED_PRODUCTS);
+  const [orderedProduct, setOrderedProduct] = useState(ORDERED_PRODUCTS);
 
   function addingProductHandler(productToAdd) {
-    console.log(JSON.stringify(productToAdd));
+    //console.log("from cart component " + JSON.stringify(productToAdd));
 
-    /* setOrderedProduct(function (prevState) {
-      return { ...prevState, productToAdd };
-    }); */
+    setOrderedProduct((prevState) => {
+      return [...prevState, productToAdd];
+    });
   }
-
-  /* function clickHandler(event) {
-    event.preventDefault();
-  } */
 
   return (
     <Card className="cart">
       <h1>Products</h1>
-      {/* {PRODUCT_LIST.map((product) => (
-        <Card>
-          <Product
-            key={product.id}
-            title={product.title}
-            price={product.price}
-          />
-          <button onClick={clickHandler}>ADD</button>
-        </Card>
-      ))} */}
 
       {PRODUCT_LIST.map((product) => (
         <Product
@@ -62,11 +48,12 @@ function Cart() {
         />
       ))}
 
-      {ORDERED_PRODUCTS.map((orderedProd) => (
+      {orderedProduct.map((orderedProd) => (
         <Product
-          key={/* orderedProduct. */ orderedProd.id}
-          title={/* orderedProduct. */ orderedProd.title}
-          price={/* orderedProduct. */ orderedProd.price}
+          key={orderedProd.id}
+          id={orderedProd.id}
+          title={orderedProd.title}
+          price={orderedProd.price}
         />
       ))}
 
