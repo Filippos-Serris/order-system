@@ -9,3 +9,7 @@
 .customer_info {
   text-align: center;
 }
+
+.bold_border {
+  border: solid 5px yellow;
+}

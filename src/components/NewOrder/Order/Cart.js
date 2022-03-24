@@ -21,10 +21,9 @@ const PRODUCT_LIST = [
   },
 ];
 
-const ORDERED_PRODUCTS = [];
-
+//-----------------------------------------------------------------------------------------------
 function Cart() {
-  const [orderedProduct, setOrderedProduct] = useState(ORDERED_PRODUCTS);
+  const [orderedProduct, setOrderedProduct] = useState([]);
 
   function addingProductHandler(productToAdd) {
     //console.log("from cart component " + JSON.stringify(productToAdd));
@@ -32,30 +31,42 @@ function Cart() {
     setOrderedProduct((prevState) => {
       return [...prevState, productToAdd];
     });
+
+    orderTotal();
   }
 
+  function orderTotal() {
+    const total = orderedProduct.map((object) => object.price);
+    console.log(total);
+  }
+  //-------------------------------------------------------------------------------------------------
   return (
-    <Card className="cart">
-      <h1>Products</h1>
+    <Card>
+      <Card className="bold_border">
+        <h1>Products</h1>
+        {PRODUCT_LIST.map((product) => (
+          <Product
+            addingProduct={addingProductHandler}
+            key={product.id}
+            id={product.id}
+            title={product.title}
+            price={product.price}
+          />
+        ))}
+      </Card>
 
-      {PRODUCT_LIST.map((product) => (
-        <Product
-          addingProduct={addingProductHandler}
-          key={product.id}
-          id={product.id}
-          title={product.title}
-          price={product.price}
-        />
-      ))}
-
-      {orderedProduct.map((orderedProd) => (
-        <Product
-          key={orderedProd.id}
-          id={orderedProd.id}
-          title={orderedProd.title}
-          price={orderedProd.price}
-        />
-      ))}
+      <Card className="bold_border">
+        <h1>Ordered Products</h1>
+        {orderedProduct.map((orderedProd) => (
+          <Product
+            key={Math.random().toString()}
+            id={orderedProd.id}
+            title={orderedProd.title}
+            price={orderedProd.price}
+          />
+        ))}
+        <p>Order total: {/* {orderTotal} */}</p>
+      </Card>
 
       <button>Add Order</button>
     </Card>
