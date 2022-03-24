@@ -21,9 +21,9 @@ const PRODUCT_LIST = [
   },
 ];
 
-//-----------------------------------------------------------------------------------------------
 function Cart() {
   const [orderedProduct, setOrderedProduct] = useState([]);
+  const [orderTotal, setOrderTotal] = useState(0);
 
   function addingProductHandler(productToAdd) {
     //console.log("from cart component " + JSON.stringify(productToAdd));
@@ -31,13 +31,10 @@ function Cart() {
     setOrderedProduct((prevState) => {
       return [...prevState, productToAdd];
     });
+
+    setOrderTotal(productToAdd.price);
   }
 
-  function orderTotal() {
-    const total = orderedProduct.map((object) => object.price);
-    console.log(total);
-  }
-  //-------------------------------------------------------------------------------------------------
   return (
     <Card>
       <Card className="bold_border">
@@ -63,7 +60,7 @@ function Cart() {
             price={orderedProd.price}
           />
         ))}
-        <p>Order total: {/* {orderTotal} */}</p>
+        <p>Order total: {orderTotal} $</p>
       </Card>
 
       <button>Add Order</button>
