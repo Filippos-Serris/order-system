@@ -32,7 +32,7 @@ function Cart() {
       return [...prevState, productToAdd];
     });
 
-    setOrderTotal(productToAdd.price);
+    setOrderTotal(parseFloat(orderTotal) + parseFloat(productToAdd.price));
   }
 
   return (
