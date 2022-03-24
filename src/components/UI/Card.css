@@ -1,7 +1,7 @@
 .card {
-  background-color: black;
-  color: #c77dff;
-  border: solid thin white;
+  background-color: rgb(97, 91, 91);
+  color: black;
+  border: solid thin black;
   border-radius: 25px;
   margin: 10px;
 }
@@ -13,3 +13,8 @@
 .bold_border {
   border: solid 5px yellow;
 }
+
+.product :hover {
+  background-color: blue;
+}
+

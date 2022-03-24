@@ -6,8 +6,8 @@ function Product(props) {
     event.preventDefault();
 
     const addedProduct = {
-      id: props.id,
       title: props.title,
+      description: props.description,
       price: props.price,
     };
 
@@ -18,8 +18,9 @@ function Product(props) {
 
   return (
     <Card>
-      <h1>{props.title}</h1>
-      <h1>{props.price}$</h1>
+      <h2>{props.title}</h2>
+      <p>{props.description}</p>
+      <div>{props.price}$</div>
       <button onClick={clickHandler}>Add</button>
     </Card>
   );
