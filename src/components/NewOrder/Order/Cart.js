@@ -1,7 +1,7 @@
 import "./Cart.css";
 import Card from "../../UI/Card";
 import Product from "./Product";
-import Order from "./Order";
+import React, { useState } from "react";
 
 const PRODUCT_LIST = [
   {
@@ -21,10 +21,17 @@ const PRODUCT_LIST = [
   },
 ];
 
+const ORDERED_PRODUCTS = [{ id: "00", title: "DUMMY", price: "666" }];
+
 function Cart() {
+  //const [orderedProduct, setOrderedProduct] = useState(ORDERED_PRODUCTS);
+
   function addingProductHandler(productToAdd) {
-    const addedProduct = { ...productToAdd };
-    console.log(addedProduct);
+    console.log(JSON.stringify(productToAdd));
+
+    /* setOrderedProduct(function (prevState) {
+      return { ...prevState, productToAdd };
+    }); */
   }
 
   /* function clickHandler(event) {
@@ -49,12 +56,19 @@ function Cart() {
         <Product
           addingProduct={addingProductHandler}
           key={product.id}
+          id={product.id}
           title={product.title}
           price={product.price}
         />
       ))}
 
-      <Order />
+      {ORDERED_PRODUCTS.map((orderedProd) => (
+        <Product
+          key={/* orderedProduct. */ orderedProd.id}
+          title={/* orderedProduct. */ orderedProd.title}
+          price={/* orderedProduct. */ orderedProd.price}
+        />
+      ))}
 
       <button>Add Order</button>
     </Card>

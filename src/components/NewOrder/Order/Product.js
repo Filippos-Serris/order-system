@@ -6,6 +6,7 @@ function Product(props) {
     event.preventDefault();
 
     const addedProduct = {
+      id: props.id,
       title: props.title,
       price: props.price,
     };
