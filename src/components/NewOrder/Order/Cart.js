@@ -31,8 +31,6 @@ function Cart() {
     setOrderedProduct((prevState) => {
       return [...prevState, productToAdd];
     });
-
-    orderTotal();
   }
 
   function orderTotal() {
