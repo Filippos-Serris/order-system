@@ -37,33 +37,26 @@ function Cart() {
   const [orderedProduct, setOrderedProduct] = useState([]);
   const [orderTotal, setOrderTotal] = useState(0);
 
-  //-------------------------------------------------------------------------------------------
-  // MOVING THE BUTTON FROM PRODUCT COMPONENT HERE, REMOVING addingProductHandler()
-  /* function clickHandler(event) {
+  function clickHandler(event) {
     event.preventDefault();
+    const addID = event.target.getAttribute("add-product");
+    let productToAdd2 = {};
 
-    const productToAdd2 = {
-      title: // WHAT TO PUT HERE {like Product props}
-      description: // WHAT TO PUT HERE {like Product props}
-      price: // WHAT TO PUT HERE {like Product props}
-    };
+    for (let i = 0; i < PRODUCT_LIST.length; i++) {
+      if (PRODUCT_LIST[i].id === addID) {
+        productToAdd2 = {
+          title: PRODUCT_LIST[i].title,
+          description: PRODUCT_LIST[i].description,
+          price: PRODUCT_LIST[i].price,
+        };
+      }
+    }
 
     setOrderedProduct((prevState) => {
       return [...prevState, productToAdd2];
     });
 
     setOrderTotal(parseFloat(orderTotal) + parseFloat(productToAdd2.price));
-  } */
-  //------------------------------------------------------------------------------------------
-
-  function addingProductHandler(productToAdd) {
-    //console.log("from cart component " + JSON.stringify(productToAdd));
-
-    setOrderedProduct((prevState) => {
-      return [...prevState, productToAdd];
-    });
-
-    setOrderTotal(parseFloat(orderTotal) + parseFloat(productToAdd.price));
   }
 
   return (
@@ -73,13 +66,13 @@ function Cart() {
         {PRODUCT_LIST.map((product) => (
           <div key={product.id}>
             <Product
-              addingProduct={addingProductHandler}
               title={product.title}
               description={product.description}
               price={product.price}
             />
-            {/* <button onClick={clickHandler}>new add button</button> */
-            /*want clickHandler to take the info of the Product to pass them to the object inside ot */}
+            <button onClick={clickHandler} add-product={product.id}>
+              ADD
+            </button>
           </div>
         ))}
       </Card>
