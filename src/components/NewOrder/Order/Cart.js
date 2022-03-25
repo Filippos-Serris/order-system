@@ -40,11 +40,11 @@ function Cart() {
   function clickHandler(event) {
     event.preventDefault();
     const addID = event.target.getAttribute("add-product");
-    let productToAdd2 = {};
+    let productToAdd = {};
 
     for (let i = 0; i < PRODUCT_LIST.length; i++) {
       if (PRODUCT_LIST[i].id === addID) {
-        productToAdd2 = {
+        productToAdd = {
           title: PRODUCT_LIST[i].title,
           description: PRODUCT_LIST[i].description,
           price: PRODUCT_LIST[i].price,
@@ -53,10 +53,19 @@ function Cart() {
     }
 
     setOrderedProduct((prevState) => {
-      return [...prevState, productToAdd2];
+      return [...prevState, productToAdd];
     });
 
-    setOrderTotal(parseFloat(orderTotal) + parseFloat(productToAdd2.price));
+    setOrderTotal(parseFloat(orderTotal) + parseFloat(productToAdd.price));
+  }
+
+  function addOrderHandler() {
+    const order = {
+      total: orderTotal,
+      products: orderedProduct,
+    };
+
+    console.log(order);
   }
 
   return (
@@ -90,7 +99,7 @@ function Cart() {
         <p>Order total: {orderTotal} $</p>
       </Card>
 
-      <button>Add Order</button>
+      <button onClick={addOrderHandler}>Add Order</button>
     </Card>
   );
 }
