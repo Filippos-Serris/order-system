@@ -2,7 +2,7 @@ import "./CustomerInfo.css";
 import Card from "../UI/Card";
 import React, { useState } from "react";
 
-function CustomerInfo() {
+function CustomerInfo(props) {
   // object that stores thn form-inputs about the customer
   const [userInput, setUserInput] = useState({
     enteredStreet: "",
@@ -57,23 +57,25 @@ function CustomerInfo() {
       mobile: userInput.enteredMobile,
     };
 
-    console.log(customerInfo);
+    props.onMergeOrderData(customerInfo, {});
+    //console.log(customerInfo);
   }
 
   return (
     <Card className="customer_info">
-      <h1>New Order</h1>
       <form onSubmit={submitHandler}>
         <div>
           <label>Address</label>
           <input
             type="text"
             placeholder="Street"
+            required
             onChange={streetChangeHandler}
           ></input>
           <input
             type="number"
             placeholder="Number"
+            required
             onChange={numberChangeHandler}
           ></input>
         </div>
@@ -83,10 +85,13 @@ function CustomerInfo() {
           <input
             type="text"
             placeholder="doorbell"
+            required
             onChange={doorbellChangeHandler}
           ></input>
-          <select onChange={floorChangeHandler}>
-            <option>---Select Floor---</option>
+          <select required onChange={floorChangeHandler}>
+            {/* <option className="mpla" disabled selected>
+              Select floor
+            </option> */}
             <option>Ground floor</option>
             <option>1st floor</option>
             <option>2nd floor</option>
@@ -101,12 +106,14 @@ function CustomerInfo() {
             type="tel"
             placeholder="home phone number, ex: 012-345-6789"
             pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+            required
             onChange={phoneChangeHandler}
           ></input>
           <input
             type="tel"
             placeholder="mobile number, ex: 012-345-6789"
             pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+            required
             onChange={mobileChangeHandler}
           ></input>
         </div>

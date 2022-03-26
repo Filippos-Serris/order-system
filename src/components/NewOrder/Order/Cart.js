@@ -33,7 +33,7 @@ const PRODUCT_LIST = [
   },
 ];
 
-function Cart() {
+function Cart(props) {
   const [orderedProduct, setOrderedProduct] = useState([]);
   const [orderTotal, setOrderTotal] = useState(0);
 
@@ -60,12 +60,16 @@ function Cart() {
   }
 
   function addOrderHandler() {
+    const orderDate = new Date();
+
     const order = {
       total: orderTotal,
       products: orderedProduct,
+      timestamp: orderDate.getTime(),
     };
 
-    console.log(order);
+    props.onMergeOrderData({}, order);
+    //console.log(order);
   }
 
   return (
