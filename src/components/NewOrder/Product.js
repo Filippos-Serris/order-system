@@ -1,5 +1,5 @@
 import "./Product.css";
-import Card from "../../UI/Card";
+import Card from "../UI/Card";
 
 function Product(props) {
   return (

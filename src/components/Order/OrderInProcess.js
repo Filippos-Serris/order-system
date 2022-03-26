@@ -1,6 +1,6 @@
 import "./OrderInProcess";
-import Card from "../../UI/Card";
-import Order from "../Order";
+import Card from "../UI/Card";
+import Order from "./Order";
 
 function OrderInProcess() {
   return (

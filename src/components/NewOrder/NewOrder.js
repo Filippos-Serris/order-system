@@ -1,7 +1,7 @@
 import "./NewOrder.css";
 import CustomerInfo from "./CustomerInfo";
 import Card from "../UI/Card";
-import Cart from "./Order/Cart";
+import Cart from "./Cart";
 
 function NewOrder(props) {
   const orderData = {};
