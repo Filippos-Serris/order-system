@@ -31,7 +31,7 @@ function NewOrder(props) {
 
     if (customerExist && orderExist) {
       props.onOrderSubmit(orderData);
-      //console, log(JSON.stringify(orderData));
+      console.log(JSON.stringify(orderData));
 
       customerExist = false;
       orderExist = false;

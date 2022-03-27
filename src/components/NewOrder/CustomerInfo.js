@@ -58,7 +58,11 @@ function CustomerInfo(props) {
     };
 
     props.onMergeOrderData(customerInfo, {});
+
+    setUserInput({});
+
     //console.log(customerInfo);
+    //console.log(JSON.stringify(userInput));
   }
 
   return (
@@ -69,12 +73,14 @@ function CustomerInfo(props) {
           <input
             type="text"
             placeholder="Street"
+            value={userInput.enteredStreet || ""}
             required
             onChange={streetChangeHandler}
           ></input>
           <input
             type="number"
             placeholder="Number"
+            value={userInput.enteredNumber || ""}
             required
             onChange={numberChangeHandler}
           ></input>
@@ -85,13 +91,12 @@ function CustomerInfo(props) {
           <input
             type="text"
             placeholder="doorbell"
+            value={userInput.enteredDoorbell || ""}
             required
             onChange={doorbellChangeHandler}
           ></input>
           <select required onChange={floorChangeHandler}>
-            {/* <option className="mpla" disabled selected>
-              Select floor
-            </option> */}
+            <option>Select floor</option>
             <option>Ground floor</option>
             <option>1st floor</option>
             <option>2nd floor</option>
@@ -106,6 +111,7 @@ function CustomerInfo(props) {
             type="tel"
             placeholder="home phone number, ex: 012-345-6789"
             pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+            value={userInput.enteredPhone || ""}
             required
             onChange={phoneChangeHandler}
           ></input>
@@ -113,6 +119,7 @@ function CustomerInfo(props) {
             type="tel"
             placeholder="mobile number, ex: 012-345-6789"
             pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+            value={userInput.enteredMobile || ""}
             required
             onChange={mobileChangeHandler}
           ></input>

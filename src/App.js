@@ -5,7 +5,10 @@ import OrderInProcess from "./components/Order/OrderInProcess";
 import CompletedOrder from "./components/Order/CompletedOrder";
 
 function App() {
-  function onOrderSubmitHandler() {}
+  function onOrderSubmitHandler(orderInfo) {
+    
+  }
+
   return (
     <Card>
       <NewOrder onOrderSubmit={onOrderSubmitHandler} />
