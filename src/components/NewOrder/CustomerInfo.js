@@ -13,7 +13,7 @@ function CustomerInfo(props) {
     enteredMobile: "",
   });
 
-  // on every change (keystroke) the current field updates the current field of the object
+  // on every change (keystroke) the current field updates the current field of the object.
   function streetChangeHandler(event) {
     setUserInput(function (prevState) {
       return { ...prevState, enteredStreet: event.target.value };
