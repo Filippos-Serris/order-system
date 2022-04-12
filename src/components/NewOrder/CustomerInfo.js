@@ -67,7 +67,7 @@ function CustomerInfo(props) {
 
   return (
     <Card>
-      <h2>Customer Info</h2>
+      <h1>Customer Info</h1>
       <form onSubmit={submitHandler}>
         <div class="form-group container">
           <div class="row">
@@ -159,7 +159,9 @@ function CustomerInfo(props) {
           </div>
         </div>
 
-        <button class="btn btn-light">Submit</button>
+        <button className="btn btn-warning" style={{ color: "white" }}>
+          Submit
+        </button>
       </form>
     </Card>
   );
