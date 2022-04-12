@@ -66,66 +66,100 @@ function CustomerInfo(props) {
   }
 
   return (
-    <Card className="customer_info">
+    <Card>
+      <h2>Customer Info</h2>
       <form onSubmit={submitHandler}>
-        <div>
-          <label>Address</label>
-          <input
-            type="text"
-            placeholder="Street"
-            value={userInput.enteredStreet || ""}
-            required
-            onChange={streetChangeHandler}
-          ></input>
-          <input
-            type="number"
-            placeholder="Number"
-            value={userInput.enteredNumber || ""}
-            required
-            onChange={numberChangeHandler}
-          ></input>
+        <div class="form-group container">
+          <div class="row">
+            <div class="col-sm">
+              <label>Address</label>
+            </div>
+            <div class="col-sm">
+              <input
+                class="form-control"
+                type="text"
+                placeholder="Street"
+                value={userInput.enteredStreet || ""}
+                required
+                onChange={streetChangeHandler}
+              ></input>
+            </div>
+            <div class="col-sm">
+              <input
+                class="form-control"
+                type="number"
+                placeholder="Number"
+                value={userInput.enteredNumber || ""}
+                required
+                onChange={numberChangeHandler}
+              ></input>
+            </div>
+          </div>
         </div>
 
-        <div>
-          <label>Apartment Information</label>
-          <input
-            type="text"
-            placeholder="doorbell"
-            value={userInput.enteredDoorbell || ""}
-            required
-            onChange={doorbellChangeHandler}
-          ></input>
-          <select required onChange={floorChangeHandler}>
-            <option>Select floor</option>
-            <option>Ground floor</option>
-            <option>1st floor</option>
-            <option>2nd floor</option>
-            <option>3rd floor</option>
-            <option>4th floor</option>
-          </select>
+        <div class="form-group container">
+          <div class="row">
+            <div class="col-sm">
+              <label>Apartment Information</label>
+            </div>
+            <div class="col-sm">
+              <input
+                class="form-control"
+                type="text"
+                placeholder="Doorbell"
+                value={userInput.enteredDoorbell || ""}
+                required
+                onChange={doorbellChangeHandler}
+              ></input>
+            </div>
+            <div class="col-sm">
+              <select
+                required
+                onChange={floorChangeHandler}
+                class="form-control"
+              >
+                <option>Select floor</option>
+                <option>Ground floor</option>
+                <option>1st floor</option>
+                <option>2nd floor</option>
+                <option>3rd floor</option>
+                <option>4th floor</option>
+              </select>
+            </div>
+          </div>
         </div>
 
-        <div>
-          <label>Contact Information</label>
-          <input
-            type="tel"
-            placeholder="home phone number, ex: 012-345-6789"
-            pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
-            value={userInput.enteredPhone || ""}
-            required
-            onChange={phoneChangeHandler}
-          ></input>
-          <input
-            type="tel"
-            placeholder="mobile number, ex: 012-345-6789"
-            pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
-            value={userInput.enteredMobile || ""}
-            required
-            onChange={mobileChangeHandler}
-          ></input>
+        <div class="form-group container">
+          <div class="row">
+            <div class="col-sm">
+              <label>Contact Information</label>
+            </div>
+            <div class="col-sm">
+              <input
+                class="form-control"
+                type="tel"
+                placeholder="home-phone 012-345-6789"
+                pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+                value={userInput.enteredPhone || ""}
+                required
+                onChange={phoneChangeHandler}
+              ></input>
+            </div>
+            <div class="col-sm">
+              <input
+                class="form-control"
+                type="tel"
+                placeholder="mobile-number 012-345-6789"
+                pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+                value={userInput.enteredMobile || ""}
+                required
+                onChange={mobileChangeHandler}
+              ></input>
+            </div>
+          </div>
         </div>
 
-        <button>Submit</button>
+        <button class="btn btn-light">Submit</button>
       </form>
     </Card>
   );

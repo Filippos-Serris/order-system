@@ -4,17 +4,7 @@
   border: solid thin black;
   border-radius: 25px;
   margin: 10px;
-}
-
-.customer_info {
   text-align: center;
-}
-
-.bold_border {
-  border: solid 5px yellow;
-}
-
-.product :hover {
-  background-color: blue;
+  padding:10px
 }
 

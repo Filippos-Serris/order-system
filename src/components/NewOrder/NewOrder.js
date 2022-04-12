@@ -40,7 +40,6 @@ function NewOrder(props) {
 
   return (
     <Card>
-      <h1>New Order</h1>
       <CustomerInfo onMergeOrderData={onMergeOrderDataHandler} />
       <Cart onMergeOrderData={onMergeOrderDataHandler} />
     </Card>

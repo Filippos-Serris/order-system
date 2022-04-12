@@ -74,24 +74,35 @@ function Cart(props) {
 
   return (
     <Card>
-      <Card className="bold_border">
-        <h1>Products</h1>
-        {PRODUCT_LIST.map((product) => (
-          <div key={product.id}>
-            <Product
-              title={product.title}
-              description={product.description}
-              price={product.price}
-            />
-            <button onClick={clickHandler} add-product={product.id}>
-              ADD
-            </button>
-          </div>
-        ))}
+      <Card>
+        <h1>Menu</h1>
+        <div class="container">
+          {PRODUCT_LIST.map((product) => (
+            <div key={product.id} class="row">
+              <div class="col-lg">
+                <Product
+                  title={product.title}
+                  description={product.description}
+                  price={product.price}
+                />
+              </div>
+
+              <div class="col-sm">
+                <button
+                  onClick={clickHandler}
+                  add-product={product.id}
+                  class="btn btn-light"
+                >
+                  +
+                </button>
+              </div>
+            </div>
+          ))}
+        </div>
       </Card>
 
-      <Card className="bold_border">
-        <h1>Ordered Products</h1>
+      <Card>
+        <h1>Your Order</h1>
         {orderedProduct.map((orderedProd) => (
           <Product
             key={Math.random().toString()}
@@ -100,10 +111,12 @@ function Cart(props) {
             price={orderedProd.price}
           />
         ))}
-        <p>Order total: {orderTotal} $</p>
+        <h3>Order total: {orderTotal} $</h3>
       </Card>
 
-      <button onClick={addOrderHandler}>Add Order</button>
+      <button onClick={addOrderHandler} class="btn btn-light">
+        Add Order
+      </button>
     </Card>
   );
 }
