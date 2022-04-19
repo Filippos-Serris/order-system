@@ -69,14 +69,14 @@ function CustomerInfo(props) {
     <Card>
       <h1>Customer Info</h1>
       <form onSubmit={submitHandler}>
-        <div class="form-group container">
-          <div class="row">
-            <div class="col-sm">
+        <div className="form-group container">
+          <div className="row">
+            <div className="col-sm">
               <label>Address</label>
             </div>
-            <div class="col-sm">
+            <div className="col-sm">
               <input
-                class="form-control"
+                className="form-control"
                 type="text"
                 placeholder="Street"
                 value={userInput.enteredStreet || ""}
@@ -84,9 +84,9 @@ function CustomerInfo(props) {
                 onChange={streetChangeHandler}
               ></input>
             </div>
-            <div class="col-sm">
+            <div className="col-sm">
               <input
-                class="form-control"
+                className="form-control"
                 type="number"
                 placeholder="Number"
                 value={userInput.enteredNumber || ""}
@@ -97,14 +97,14 @@ function CustomerInfo(props) {
           </div>
         </div>
 
-        <div class="form-group container">
-          <div class="row">
-            <div class="col-sm">
+        <div className="form-group container">
+          <div className="row">
+            <div className="col-sm">
               <label>Apartment Information</label>
             </div>
-            <div class="col-sm">
+            <div className="col-sm">
               <input
-                class="form-control"
+                className="form-control"
                 type="text"
                 placeholder="Doorbell"
                 value={userInput.enteredDoorbell || ""}
@@ -112,11 +112,11 @@ function CustomerInfo(props) {
                 onChange={doorbellChangeHandler}
               ></input>
             </div>
-            <div class="col-sm">
+            <div className="col-sm">
               <select
                 required
                 onChange={floorChangeHandler}
-                class="form-control"
+                className="form-control"
               >
                 <option>Select floor</option>
                 <option>Ground floor</option>
@@ -129,14 +129,14 @@ function CustomerInfo(props) {
           </div>
         </div>
 
-        <div class="form-group container">
-          <div class="row">
-            <div class="col-sm">
+        <div className="form-group container">
+          <div className="row">
+            <div className="col-sm">
               <label>Contact Information</label>
             </div>
-            <div class="col-sm">
+            <div className="col-sm">
               <input
-                class="form-control"
+                className="form-control"
                 type="tel"
                 placeholder="home-phone 012-345-6789"
                 pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
@@ -145,9 +145,9 @@ function CustomerInfo(props) {
                 onChange={phoneChangeHandler}
               ></input>
             </div>
-            <div class="col-sm">
+            <div className="col-sm">
               <input
-                class="form-control"
+                className="form-control"
                 type="tel"
                 placeholder="mobile-number 012-345-6789"
                 pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"

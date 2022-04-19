@@ -76,10 +76,10 @@ function Cart(props) {
     <Card>
       <Card>
         <h1>Menu</h1>
-        <div class="container">
+        <div className="container">
           {PRODUCT_LIST.map((product) => (
-            <div key={product.id} class="row">
-              <div class="col-lg">
+            <div key={product.id} className="row">
+              <div className="col-lg">
                 <Product
                   title={product.title}
                   description={product.description}
@@ -87,11 +87,11 @@ function Cart(props) {
                 />
               </div>
 
-              <div class="col-sm">
+              <div className="col-sm">
                 <button
                   onClick={clickHandler}
                   add-product={product.id}
-                  class="btn btn-light"
+                  className="btn btn-light"
                 >
                   +
                 </button>
@@ -114,7 +114,7 @@ function Cart(props) {
         <h3>Order total: {orderTotal} $</h3>
       </Card>
 
-      <button onClick={addOrderHandler} class="btn btn-light">
+      <button onClick={addOrderHandler} className="btn btn-light">
         Add Order
       </button>
     </Card>

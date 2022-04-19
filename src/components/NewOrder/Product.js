@@ -4,15 +4,15 @@ import Card from "../UI/Card";
 function Product(props) {
   return (
     <Card>
-      <div class="container">
-        <div class="row">
+      <div className="container">
+        <div className="row">
           <h2>{props.title}</h2>
         </div>
-        <div class="row">
-          <div class="col-md">
+        <div className="row">
+          <div className="col-md">
             <p>{props.description}</p>
           </div>
-          <div class="col-sm">
+          <div className="col-sm">
             <div>{props.price}$</div>
           </div>
         </div>
