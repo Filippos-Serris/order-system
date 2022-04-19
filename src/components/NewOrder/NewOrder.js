@@ -35,6 +35,10 @@ function NewOrder(props) {
 
       customerExist = false;
       orderExist = false;
+    } else if (!customerExist) {
+      prompt(
+        "Customer information must be submitted before the order is completed"
+      );
     }
   }
 
