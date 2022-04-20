@@ -6,20 +6,20 @@ import CompletedOrder from "./components/Order/CompletedOrders/CompletedOrder";
 import OrderOnDelivery from "./components/Order/OrdersOnDelivery/OrderOnDelivery";
 
 function App() {
-  let orderInProcess = {};
+  let order = {};
 
   function onOrderSubmitHandler(orderInfo) {
-    /* orderInProcess.address =
+    /* order.address =
       orderInfo.customerInfo.streetName + orderInfo.customerInfo.streetNumber;
-    orderInProcess.doorbell = orderInfo.customerInfo.doorbell;
-    orderInProcess.floor = orderInfo.customerInfo.floor;
-    orderInProcess.phone = orderInfo.customerInfo.phone;
-    orderInProcess.mobile = orderInfo.customerInfo.mobile;
-    orderInProcess.products = orderInfo.orderInfo.products;
-    orderInProcess.total = orderInfo.orderInfo.total;
-    orderInProcess.timestamp = orderInfo.orderInfo.timestamp; */
+    order.doorbell = orderInfo.customerInfo.doorbell;
+    order.floor = orderInfo.customerInfo.floor;
+    order.phone = orderInfo.customerInfo.phone;
+    order.mobile = orderInfo.customerInfo.mobile;
+    order.products = orderInfo.orderInfo.products;
+    order.total = orderInfo.orderInfo.total;
+    order.timestamp = orderInfo.orderInfo.timestamp; */
 
-    orderInProcess = {
+    order = {
       address:
         orderInfo.customerInfo.streetName + orderInfo.customerInfo.streetNumber,
       doorbell: orderInfo.customerInfo.doorbell,
@@ -31,7 +31,7 @@ function App() {
       timestamp: orderInfo.orderInfo.timestamp,
     };
 
-    console.log("FROM APP.JS " + JSON.stringify(orderInProcess));
+    console.log("FROM APP.JS " + JSON.stringify(order));
   }
 
   return (
@@ -51,9 +51,9 @@ function App() {
 
       <h1>Welcome to Burgers</h1>
       <NewOrder onOrderSubmit={onOrderSubmitHandler} />
-      <OrderInProcess orderInProcess={orderInProcess} />
-      <OrderOnDelivery />
-      <CompletedOrder />
+      <OrderInProcess orderInProcess={order} />
+      <OrderOnDelivery orderOnDelivery={order} />
+      <CompletedOrder completedOrder={order} />
 
       <script
         src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
