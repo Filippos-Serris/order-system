@@ -1,11 +1,38 @@
 import "./App.css";
 import NewOrder from "./components/NewOrder/NewOrder";
 import Card from "./components/UI/Card";
-import OrderInProcess from "./components/Order/OrderInProcess";
-import CompletedOrder from "./components/Order/CompletedOrder";
+import OrderInProcess from "./components/Order/OrdersInProcess/OrderInProcess";
+import CompletedOrder from "./components/Order/CompletedOrders/CompletedOrder";
+import OrderOnDelivery from "./components/Order/OrdersOnDelivery/OrderOnDelivery";
 
 function App() {
-  function onOrderSubmitHandler(orderInfo) {}
+  let orderInProcess = {};
+
+  function onOrderSubmitHandler(orderInfo) {
+    /* orderInProcess.address =
+      orderInfo.customerInfo.streetName + orderInfo.customerInfo.streetNumber;
+    orderInProcess.doorbell = orderInfo.customerInfo.doorbell;
+    orderInProcess.floor = orderInfo.customerInfo.floor;
+    orderInProcess.phone = orderInfo.customerInfo.phone;
+    orderInProcess.mobile = orderInfo.customerInfo.mobile;
+    orderInProcess.products = orderInfo.orderInfo.products;
+    orderInProcess.total = orderInfo.orderInfo.total;
+    orderInProcess.timestamp = orderInfo.orderInfo.timestamp; */
+
+    orderInProcess = {
+      address:
+        orderInfo.customerInfo.streetName + orderInfo.customerInfo.streetNumber,
+      doorbell: orderInfo.customerInfo.doorbell,
+      floor: orderInfo.customerInfo.floor,
+      phone: orderInfo.customerInfo.phone,
+      mobile: orderInfo.customerInfo.mobile,
+      products: orderInfo.orderInfo.products,
+      total: orderInfo.orderInfo.total,
+      timestamp: orderInfo.orderInfo.timestamp,
+    };
+
+    console.log("FROM APP.JS " + JSON.stringify(orderInProcess));
+  }
 
   return (
     <Card>
@@ -24,7 +51,8 @@ function App() {
 
       <h1>Welcome to Burgers</h1>
       <NewOrder onOrderSubmit={onOrderSubmitHandler} />
-      <OrderInProcess />
+      <OrderInProcess orderInProcess={orderInProcess} />
+      <OrderOnDelivery />
       <CompletedOrder />
 
       <script

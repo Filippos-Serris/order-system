@@ -38,7 +38,6 @@ function Cart(props) {
   const [orderTotal, setOrderTotal] = useState(0);
 
   function clickHandler(event) {
-    event.preventDefault();
     const addID = event.target.getAttribute("add-product");
     let productToAdd = {};
 
@@ -69,6 +68,10 @@ function Cart(props) {
     };
 
     props.onMergeOrderData({}, order);
+
+    setOrderedProduct([]);
+    setOrderTotal(0.0);
+
     //console.log(order);
   }
 

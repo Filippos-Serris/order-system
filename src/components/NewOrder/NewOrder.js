@@ -21,7 +21,7 @@ function NewOrder(props) {
     }
 
     if (Object.keys(sentOrder).length !== 0) {
-      orderData.order = {
+      orderData.orderInfo = {
         products: sentOrder.products,
         total: sentOrder.total,
         timestamp: sentOrder.timestamp,
@@ -31,13 +31,13 @@ function NewOrder(props) {
 
     if (customerExist && orderExist) {
       props.onOrderSubmit(orderData);
-      console.log(JSON.stringify(orderData));
+      //console.log(JSON.stringify(orderData));
 
       customerExist = false;
       orderExist = false;
     } else if (!customerExist) {
       prompt(
-        "Customer information must be submitted before the order is completed"
+        "Customer information must be submitted before the orderInfo is completed"
       );
     }
   }
