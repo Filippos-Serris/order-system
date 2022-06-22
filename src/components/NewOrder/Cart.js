@@ -67,12 +67,20 @@ function Cart(props) {
       timestamp: orderDate.getTime(),
     };
 
-    props.onMergeOrderData({}, order);
+    if (props.customerExistence) {
+      props.onMergeOrderData({}, order);
 
-    setOrderedProduct([]);
-    setOrderTotal(0.0);
+      setOrderedProduct([]);
+      setOrderTotal(0.0);
 
-    //console.log(order);
+      //console.log(order);
+    } else {
+      alert(
+        "Customer information must be submitted before the orderInfo is completed"
+      );
+    }
+
+    console.log(props.customerExistence);
   }
 
   return (
@@ -105,7 +113,7 @@ function Cart(props) {
       </Card>
 
       <Card>
-        <h1>Your Order</h1>
+        <h1>Your Order {props.customerExistence}</h1>
         {orderedProduct.map((orderedProd) => (
           <Product
             key={Math.random().toString()}

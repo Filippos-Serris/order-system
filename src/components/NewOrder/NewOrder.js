@@ -2,10 +2,12 @@ import "./NewOrder.css";
 import CustomerInfo from "./CustomerInfo";
 import Card from "../UI/Card";
 import Cart from "./Cart";
+import React, { useState } from "react";
 
 function NewOrder(props) {
   const orderData = {};
-  let customerExist, orderExist;
+  let orderExist = false;
+  const [customerExist, setCustomerExist] = useState(false);
 
   function onMergeOrderDataHandler(sentCustomerInfo, sentOrder) {
     if (Object.keys(sentCustomerInfo).length !== 0) {
@@ -17,7 +19,7 @@ function NewOrder(props) {
         phone: sentCustomerInfo.phone,
         mobile: sentCustomerInfo.mobile,
       };
-      customerExist = true;
+      setCustomerExist(true);
     }
 
     if (Object.keys(sentOrder).length !== 0) {
@@ -33,19 +35,18 @@ function NewOrder(props) {
       props.onOrderSubmit(orderData);
       //console.log(JSON.stringify(orderData));
 
-      customerExist = false;
+      setCustomerExist(false);
       orderExist = false;
-    } else if (!customerExist) {
-      prompt(
-        "Customer information must be submitted before the orderInfo is completed"
-      );
     }
   }
 
   return (
     <Card>
       <CustomerInfo onMergeOrderData={onMergeOrderDataHandler} />
-      <Cart onMergeOrderData={onMergeOrderDataHandler} />
+      <Cart
+        onMergeOrderData={onMergeOrderDataHandler}
+        customerExistence={customerExist}
+      />
     </Card>
   );
 }
